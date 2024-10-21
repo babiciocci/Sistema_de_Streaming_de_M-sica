@@ -60,3 +60,6 @@ MODELO ENTIDADE RELACIONAL (MER):
 
 <img src="Modelo Entidade Relacional.jpg">
 
+======================================================================================================================================================
+
+MODELO RELACIONAL (3FN):
