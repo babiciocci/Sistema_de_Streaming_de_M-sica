@@ -1,37 +1,37 @@
-CREATE TABLE artistas (
+CREATE TABLE artista (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     data_nascimento DATE NOT NULL
 );
 
-CREATE TABLE discos (
+CREATE TABLE disco (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(100) NOT NULL,
     data_lancamento DATE NOT NULL,
     id_artista INT REFERENCES artistas(id)
 );
 
-CREATE TABLE musicas (
+CREATE TABLE musica (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(100) NOT NULL,
     duracao INT NOT NULL,
     id_disco INT REFERENCES discos(id)
 );
 
-CREATE TABLE usuarios (
+CREATE TABLE usuario (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     data_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE playlists (
+CREATE TABLE playlist (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(100) NOT NULL,
     id_usuario INT REFERENCES usuarios(id)
 );
 
-CREATE TABLE musica_artista (
+CREATE TABLE artista_musica (
     id_musica INT REFERENCES musicas(id),
     id_artista INT REFERENCES artistas(id),
     PRIMARY KEY (id_musica, id_artista)
