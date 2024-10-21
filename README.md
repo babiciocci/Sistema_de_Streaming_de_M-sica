@@ -63,3 +63,118 @@ MODELO ENTIDADE RELACIONAL (MER):
 ======================================================================================================================================================
 
 MODELO RELACIONAL (3FN):
+
+Com base nos atributos e relacionamentos, temos o seguinte modelo relacional:
+
+Tabelas
+ 
+    - Musicas 
+
+ID_Música (PK)
+<br>
+Título
+<br>
+Duração
+<br>
+ID_Disco (FK)
+
+    - Artista
+
+ID_Artista (PK)
+<br>
+Nome
+<br>
+Data_Nascimento
+
+    - Disco
+
+ID_Disco (PK)
+<br>
+Título
+<br>
+Data_Lancamento
+<br>
+ID_Artista (FK)
+
+    - Usuário
+
+ID_Usuário (PK)
+<br>
+Nome
+<br>
+Email
+<br>
+Data_Registro
+
+    - Playlist
+
+ID_Playlist (PK)
+<br>
+Título
+<br>
+ID_Usuário (FK)
+
+    - Playlist_Música
+
+ID_Playlist (FK)
+<br>
+ID_Música (FK)
+
+Observações sobre a normalização
+<br>
+1FN (Primeira Forma Normal): Todas as tabelas têm atributos atômicos, sem valores repetidos.
+<br>
+2FN (Segunda Forma Normal): Todos os atributos não-chave dependem completamente da chave primária.
+<br>
+3FN (Terceira Forma Normal): Não há dependências transitivas entre os atributos não-chave e a chave primária.
+<br>
+
+```mermaid 
+erDiagram
+
+   ARTISTA{
+      int ID_Artista PK
+      string Nome
+      date Data_Nascimento
+   }
+   DISCO{
+        int ID_Disco PK
+        string Titulo
+        date Data_Lancamento
+        int ID_Artista FK
+   }
+   USUARIO{
+        int ID_Usuario PK
+        string Nome
+        string Email
+        date Data_Registro
+    }
+   MUSICA{
+        int ID_Musica PK
+        string Titulo
+        int Duracao
+        int ID_Disco FK
+    }
+    
+    PLAYLIST{
+        int ID_Playlist PK
+        string Titulo
+        int ID_Usuario FK
+    }
+    MUSICA_DA_PLAYLIST{
+        int ID_Playlist FK
+        int ID_Musica FK
+    }
+   MUSICA_DE_ARTISTA{
+        int ID_Artista FK
+        int ID_Musica FK
+    }
+
+    MUSICA ||--o| DISCO: "pertence_a"
+    DISCO ||--o| ARTISTA: "criado_por"
+    PLAYLIST ||--o| USUARIO: "criada_por"
+    MUSICA_DA_PLAYLIST ||--|| PLAYLIST: "contém"
+    MUSICA_DA_PLAYLIST ||--|| MUSICA: "contém"
+    MUSICA_DE_ARTISTA ||--|| ARTISTA: "interpreta"
+    MUSICA_DE_ARTISTA ||--|| MUSICA: "é_interpretada_por"
+```
