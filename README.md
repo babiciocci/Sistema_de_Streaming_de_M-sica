@@ -2,7 +2,7 @@
 
 Feito por: Gabriela Molina Ciocci | Bruno Arthur Basso Silva
 <br>
-RA:        22.222.032-9           | 22.123.067-5  
+RA: 22.222.032-9 | 22.123.067-5
 <br>
 Disciplina: CC5232 - Banco de Dados
 <br>
