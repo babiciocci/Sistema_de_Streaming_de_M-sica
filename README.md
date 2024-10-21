@@ -1,8 +1,8 @@
 # Projeto 1: Sistema de Streaming de Música
 
-Feito por: Gabriela Molina Ciocci | Bruno Arthur Basso Silva
+Feito por: Bruno Arthur Basso Silva | Gabriela Molina Ciocci 
 <br>
-RA: 22.222.032-9 | 22.123.067-5
+RA: 22.123.067-5 | 22.222.032-9 
 <br>
 Disciplina: CC5232 - Banco de Dados
 <br>
@@ -60,6 +60,3 @@ MODELO ENTIDADE RELACIONAL (MER):
 
 <img src="Modelo Entidade Relacional.jpg">
 
-======================================================================================================================================================
-
-MODELO RELACIONAL (3FN):
