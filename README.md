@@ -68,57 +68,43 @@ Com base nos atributos e relacionamentos, temos o seguinte modelo relacional:
 
 Tabelas
  
-    - Musicas 
+Musicas 
 
-ID_Música (PK)
-<br>
-Título
-<br>
-Duração
-<br>
-ID_Disco (FK)
+    ID_Música (PK)
+    Título
+    Duração
+    ID_Disco (FK)
 
-    - Artista
+Artista
 
-ID_Artista (PK)
-<br>
-Nome
-<br>
-Data_Nascimento
+    ID_Artista (PK)
+    Nome
+    Data_Nascimento
 
-    - Disco
+Disco
 
-ID_Disco (PK)
-<br>
-Título
-<br>
-Data_Lancamento
-<br>
-ID_Artista (FK)
+    ID_Disco (PK)
+    Título
+    Data_Lancamento
+    ID_Artista (FK)
 
-    - Usuário
+Usuário
 
-ID_Usuário (PK)
-<br>
-Nome
-<br>
-Email
-<br>
-Data_Registro
+    ID_Usuário (PK)
+    Nome
+    Email
+    Data_Registro
 
-    - Playlist
+Playlist
 
-ID_Playlist (PK)
-<br>
-Título
-<br>
-ID_Usuário (FK)
+    ID_Playlist (PK)
+    Título
+    ID_Usuário (FK)
 
-    - Playlist_Música
+Playlist_Música
 
-ID_Playlist (FK)
-<br>
-ID_Música (FK)
+    ID_Playlist (FK)
+    ID_Música (FK)
 
 Observações sobre a normalização
 <br>
