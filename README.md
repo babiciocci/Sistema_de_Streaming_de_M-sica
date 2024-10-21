@@ -12,14 +12,14 @@ Ciclo: 5° Semestre.
 Curso: Ciência da Computação
 Universidade: Centro Universitário FEI
 
-==========================================================================================================================
+======================================================================================================================================================
 
 Certifique-se de criar o Banco de Dados e respectivas tabelas antes de utilizar o código.
 
 O arquivo que contém as Queries de criação de tabelas no Banco de Dados chama-se "Queries SQL para Criação de Tabelas.txt".
 O arquivo que contém as Queries para as 20 questões de Álgebra Relacional chama-se "Queries SQL para Alg Rel.txt".
 
-==========================================================================================================================
+======================================================================================================================================================
 
 CÓDIGO PARA CRIAÇÃO DE DADOS ALEATÓRIOS:
 
@@ -44,7 +44,7 @@ Você poderá fechar o programa após a criação do arquivo.
 Neste arquivo contém as Queries para adição dos dados no banco de dados.
 Para adicioná-las, basta abrir o arquivo "codeSQL.txt", copiar todo seu conteúdo e colar no terminal do SQL.
 
-==========================================================================================================================
+======================================================================================================================================================
 
 MODELO RELACIONAL (3FN):
 
