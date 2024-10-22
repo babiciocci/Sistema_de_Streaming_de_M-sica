@@ -307,11 +307,11 @@ def createExportCode(users, artists, musics, discs, playlists, playlist_music, a
     code_archive = open("codeSQL.txt", "w")
     code_archive.write("DELETE FROM artista_musica;\n")
     code_archive.write("DELETE FROM playlist_musica;\n")
+    code_archive.write("DELETE FROM musica;\n")
     code_archive.write("DELETE FROM disco;\n")
     code_archive.write("DELETE FROM artista;\n")
     code_archive.write("DELETE FROM playlist;\n")
     code_archive.write("DELETE FROM usuario;\n")
-    code_archive.write("DELETE FROM musica;\n")
 
 
     for i in users:
@@ -398,14 +398,14 @@ def start():
     print()
 
 # Variáveis responsáveis por informar a quantidade de cada item o usuário gostaria de criar.
-num_users = 10
-num_artists = 15
-num_musics = 90
+num_users = 32
+num_artists = 92
+num_musics = 208
 num_discs = 20
-num_playlists = 20
+num_playlists = 50
 # Número de músicas que irão conter em uma playlist.
-num_playlistMusics = 35
+num_playlistMusics = 40
 # Número de vezes que artistas aleatórios serão adicionado em músicas aleatórias.
-num_artistMusics = 90
+num_artistMusics = 150
 
 start()
