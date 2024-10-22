@@ -403,8 +403,8 @@ num_artists = 92
 num_musics = 208
 num_discs = 20
 num_playlists = 50
-# Número de músicas que irão conter em uma playlist.
-num_playlistMusics = 40
+# Número total de músicas que serão adicionadas em playlists.
+num_playlistMusics = 200
 # Número de vezes que artistas aleatórios serão adicionado em músicas aleatórias.
 num_artistMusics = 150
 
