@@ -28,7 +28,7 @@ CÓDIGO PARA CRIAÇÃO DE DADOS ALEATÓRIOS:
 
 Para utilizar o código, é obrigatório que os arquivos de texto estejam na mesma pasta que o programa em Python, são eles:
 
-   -> usuarioss.txt
+   -> usuarios.txt
    <br>
    -> artistas.txt
    <br>
