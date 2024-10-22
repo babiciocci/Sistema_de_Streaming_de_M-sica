@@ -200,9 +200,9 @@ def createDisc(archive):
 # O ID padronizado para playlists são de valores maiores que 2000 e menores que 2500.
 
 def createPlaylist():
-    playlist_id = random.randint(2000, 2500)
+    playlist_id = random.randint(2000, 2080)
     while playlist_id in existingID:
-        playlist_id = random.randint(2000, 2500)
+        playlist_id = random.randint(2000, 2080)
     
     # Obtém o título da playlist a partir da lista archive_playlist_names_read.
     title = archive_playlist_names_read[random.randint(0, len(archive_playlist_names_read) - 1)]
@@ -404,7 +404,7 @@ num_musics = 208
 num_discs = 20
 num_playlists = 50
 # Número total de músicas que serão adicionadas em playlists.
-num_playlistMusics = 200
+num_playlistMusics = 250
 # Número de vezes que artistas aleatórios serão adicionado em músicas aleatórias.
 num_artistMusics = 150
 
