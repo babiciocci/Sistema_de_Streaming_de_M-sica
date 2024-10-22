@@ -66,9 +66,7 @@ MODELO RELACIONAL (3FN):
 
 Com base nos atributos e relacionamentos, temos o seguinte modelo relacional:
 
-Tabelas
- 
-Musicas 
+Musica
 
     ID_Música (PK)
     Título
@@ -106,13 +104,18 @@ Playlist_Música
     ID_Playlist (FK)
     ID_Música (FK)
 
+Artista_Música
+
+    ID_Artista (FK)
+    ID_Música (FK)
+
 Observações sobre a normalização
 <br>
-1FN (Primeira Forma Normal): Todas as tabelas têm atributos atômicos, sem valores repetidos.
+1NF (Primeira Forma Normal): Todos os atributos devem ter valores atômicos, e as tabelas devem ter uma chave primária definida.
 <br>
-2FN (Segunda Forma Normal): Todos os atributos não-chave dependem completamente da chave primária.
+2NF (Segunda Forma Normal): Todos os atributos não-chave devem depender completamente da chave primária, não apenas de parte dela.
 <br>
-3FN (Terceira Forma Normal): Não há dependências transitivas entre os atributos não-chave e a chave primária.
+3NF (Terceira Forma Normal): Não deve haver dependências transitivas, ou seja, atributos não-chave devem depender apenas da chave primária e não de outros atributos não-chave.
 <br>
 
 ```mermaid 
@@ -141,17 +144,16 @@ erDiagram
         int Duracao
         int ID_Disco FK
     }
-    
     PLAYLIST{
         int ID_Playlist PK
         string Titulo
         int ID_Usuario FK
     }
-    MUSICA_DA_PLAYLIST{
+    PLAYLIST_MUSICA{
         int ID_Playlist FK
         int ID_Musica FK
     }
-   MUSICA_DE_ARTISTA{
+   ARTISTA_MUSICA{
         int ID_Artista FK
         int ID_Musica FK
     }
@@ -159,8 +161,8 @@ erDiagram
     MUSICA ||--o| DISCO: "pertence_a"
     DISCO ||--o| ARTISTA: "criado_por"
     PLAYLIST ||--o| USUARIO: "criada_por"
-    MUSICA_DA_PLAYLIST ||--|| PLAYLIST: "contém"
-    MUSICA_DA_PLAYLIST ||--|| MUSICA: "contém"
-    MUSICA_DE_ARTISTA ||--|| ARTISTA: "interpreta"
-    MUSICA_DE_ARTISTA ||--|| MUSICA: "é_interpretada_por"
+    PLAYLIST_MUSICA ||--|| PLAYLIST: "contém"
+    PLAYLIST_MUSICA ||--|| MUSICA: "contém"
+    ARTISTA_MUSICA ||--|| ARTISTA: "interpreta"
+    ARTISTA_MUSICA ||--|| MUSICA: "é_interpretada_por"
 ```
