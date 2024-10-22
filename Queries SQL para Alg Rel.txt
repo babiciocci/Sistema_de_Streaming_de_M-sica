@@ -1,0 +1,165 @@
+1. Liste o título de todas as músicas e suas durações.
+SELECT titulo, duracao FROM musica;
+
+
+2. Encontre o nome de todos os artistas que têm mais de 5 músicas em seu repertório.
+SELECT a.nome
+FROM artista a
+JOIN artista_musica am ON a.id = am.artista_id
+GROUP BY a.id
+HAVING COUNT(am.musica_id) > 5;
+
+
+3. Quais são os títulos dos discos lançados após 2020?
+SELECT titulo 
+FROM disco 
+WHERE EXTRACT(YEAR FROM data_lancamento) > 2020;
+
+
+4. Liste os títulos das músicas e os nomes dos artistas que as interpretam, ordenados pelo título da música.
+SELECT m.titulo AS musica_titulo, a.nome AS artista_nome
+FROM musica m
+JOIN artista_musica am ON m.id = am.musica_id
+JOIN artista a ON am.artista_id = a.id
+ORDER BY m.titulo;
+
+
+5. Encontre os títulos das playlists que contêm a música com o título 'Imagine'.
+SELECT p.titulo
+FROM playlist p
+JOIN playlist_musica pm ON p.id = pm.playlist_id
+JOIN musica m ON pm.musica_id = m.id
+WHERE m.titulo = 'Imagine';
+
+
+6. Liste os usuários que criaram playlists que contêm músicas do disco 'Abbey Road'.
+SELECT DISTINCT u.nome
+FROM usuario u
+JOIN playlist p ON u.id = p.usuario_id
+JOIN playlist_musica pm ON p.id = pm.playlist_id
+JOIN musica m ON pm.musica_id = m.id
+JOIN disco d ON m.disco_id = d.id
+WHERE d.titulo = 'Abbey Road';
+
+
+7. Qual é a duração média das músicas de um artista específico?
+SELECT AVG(m.duracao)
+FROM musica m
+JOIN artista_musica am ON m.id = am.musica_id
+WHERE am.artista_id = (colocar um id aqui);
+
+
+8. Encontre todos os artistas que não têm músicas.
+SELECT a.nome
+FROM artista a
+LEFT JOIN artista_musica am ON a.id = am.artista_id
+WHERE am.musica_id IS NULL;
+
+
+9. Liste todos os discos que contêm mais de 10 músicas.
+SELECT d.titulo
+FROM disco d
+JOIN musica m ON d.id = m.disco_id
+GROUP BY d.id
+HAVING COUNT(m.id) > 10;
+
+
+10. Quais são os nomes dos artistas que têm discos lançados antes de 2010 e que têm músicas na playlist 'Top 50'?
+SELECT DISTINCT a.nome
+FROM artista a
+JOIN artista_musica am ON a.id = am.artista_id
+JOIN musica m ON am.musica_id = m.id
+JOIN disco d ON m.disco_id = d.id
+JOIN playlist_musica pm ON m.id = pm.musica_id
+JOIN playlist p ON pm.playlist_id = p.id
+WHERE EXTRACT(YEAR FROM d.data_lancamento) < 2010 AND p.titulo = 'Top 50';
+
+
+11. Quais músicas são interpretadas por mais de um artista?
+SELECT m.titulo
+FROM musica m
+JOIN artista_musica am ON m.id = am.musica_id
+GROUP BY m.id
+HAVING COUNT(DISTINCT am.artista_id) > 1;
+
+
+12. Liste os títulos das músicas que aparecem em mais de uma playlist.
+SELECT m.titulo
+FROM musica m
+JOIN playlist_musica pm ON m.id = pm.musica_id
+GROUP BY m.id
+HAVING COUNT(pm.playlist_id) > 1;
+
+
+13. Encontre os nomes dos usuários que têm playlists que incluem a música 'Bohemian Rhapsody'.
+SELECT DISTINCT u.nome
+FROM usuario u
+JOIN playlist p ON u.id = p.usuario_id
+JOIN playlist_musica pm ON p.id = pm.playlist_id
+JOIN musica m ON pm.musica_id = m.id
+WHERE m.titulo = 'Bohemian Rhapsody';
+
+
+14. Qual é o título da música mais longa do disco 'Dark Side of the Moon'?
+SELECT m.titulo
+FROM musica m
+JOIN disco d ON m.disco_id = d.id
+WHERE d.titulo = 'Dark Side of the Moon'
+ORDER BY m.duracao DESC
+LIMIT 1;
+
+
+15. Liste todos os discos lançados por um artista específico em um determinado ano.
+SELECT d.titulo
+FROM disco d
+WHERE d.artista_id = (colocar um id aqui) AND EXTRACT(YEAR FROM d.data_lancamento) = (colocar um ano aqui);
+
+
+16. Quais são os nomes dos artistas que têm músicas em playlists criadas por um usuário específico?
+SELECT DISTINCT a.nome
+FROM artista a
+JOIN artista_musica am ON a.id = am.artista_id
+JOIN musica m ON am.musica_id = m.id
+JOIN playlist_musica pm ON m.id = pm.musica_id
+JOIN playlist p ON pm.playlist_id = p.id
+WHERE p.usuario_id = (colocar um id aqui);
+
+
+17. Encontre a lista de músicas que não estão em nenhuma playlist.
+SELECT m.titulo
+FROM musica m
+LEFT JOIN playlist_musica pm ON m.id = pm.musica_id
+WHERE pm.playlist_id IS NULL;
+
+
+18. Liste os títulos das músicas e os nomes dos artistas que têm mais de 3 músicas em uma mesma playlist.
+SELECT m.titulo, a.nome
+FROM musica m
+JOIN artista_musica am ON m.id = am.musica_id
+JOIN artista a ON am.artista_id = a.id
+JOIN playlist_musica pm ON m.id = pm.musica_id
+GROUP BY m.id, a.id
+HAVING COUNT(pm.playlist_id) > 3;
+
+
+19. Quais são os discos que contêm músicas de artistas que têm pelo menos 2 discos lançados?
+SELECT DISTINCT d.titulo
+FROM disco d
+JOIN musica m ON d.id = m.disco_id
+JOIN artista_musica am ON m.id = am.musica_id
+WHERE am.artista_id IN (
+    SELECT a.id
+    FROM artista a
+    JOIN disco d2 ON a.id = d2.artista_id
+    GROUP BY a.id
+    HAVING COUNT(d2.id) >= 2
+);
+
+
+20. Liste todos os usuários e suas playlists, mas apenas para playlists que contêm pelo menos 5 músicas?
+SELECT u.nome, p.titulo
+FROM usuario u
+JOIN playlist p ON u.id = p.usuario_id
+JOIN playlist_musica pm ON p.id = pm.playlist_id
+GROUP BY u.id, p.id
+HAVING COUNT(pm.musica_id) >= 5;

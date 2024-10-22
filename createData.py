@@ -26,7 +26,7 @@ archive_musics = open("musicas.txt", "r")
 archive_musics_read = archive_musics.read()
 archive_musics.close()
 
-archive_names = open("nomes.txt", "r")
+archive_names = open("usuarios.txt", "r")
 archive_names_read = archive_names.read()
 archive_names.close()
 
@@ -39,7 +39,7 @@ archive_names_read = archive_names_read.split("\n")
 # Abrimos os arquivos onde contém os nomes personalizados para playlists.
 # OBS: não esqueça de verificar se o arquivo está na mesma pasta do programa!
 
-archive_playlist_names = open("playlist.txt", "r")
+archive_playlist_names = open("playlists.txt", "r")
 archive_playlist_names_read = archive_playlist_names.read()
 archive_playlist_names.close()
 
@@ -52,7 +52,9 @@ archive_playlist_names_read = archive_playlist_names_read.split("\n")
 emailTypes = ["@outlook.com", "@gmail.com", "@hotmail.com"]
 
 # Lista que será responsável por armazenar os valores de ID existentes no programa.
+# Variável que guarda o valor de ID.
 
+count_id = 0
 existingID = []
 
 # Lista que será responsável por armazenar os usuários, músicas, artistas e discos existentes no programa.
@@ -78,11 +80,11 @@ def createDate(type):
 
     # Tipo 1: para datas de nascimento.
     if type == 1:
-        year = random.randint(1950, 2010)
+        year = random.randint(1950, 2005)
     
     # Tipo 2: para datas de registro ou lançamento.
     if type == 2:
-        year = random.randint(2013, 2024)
+        year = random.randint(2008, 2024)
 
     return day, mounth, year
 
@@ -155,13 +157,21 @@ def createMusic(archive):
     release_date = createDate(2)
     # Cria o valor de duração da música.
     duration = random.randint(120, 360)
+    # Adicionamos a música a um disco já existente aleatório.
+    disco_id = discs[random.randint(0, len(discs) - 1)][0]
+
+    # Se caso houver um disco existente com o nome da música que está sendo criada, então essa música irá para esse disco.
+    # Se não, ele mantém a música no disco aletório gerado anteriormente.
+    for disco in discs:
+        if disco[1] == title:
+            disco_id = disco[0]
 
     # Adiciona o ID da música à lista de ID's existentes para evitar duplicatas no futuro.
     existingID.append(music_id)
     # Adiciona os detalhes da música na lista de músicas.
-    musics.append([music_id, title, release_date, duration])
+    musics.append([music_id, title, release_date, duration, disco_id])
     # Retorna o ID, título, data de lançamento e duração da música recém-criada.
-    return music_id, title, release_date, duration
+    return music_id, title, release_date, duration, disco_id
 
 # createDisc: Cria um disco.
 # Iniciamos novamente a geração de um ID de disco aleatório e repetimos o processo anterior. 
@@ -174,7 +184,7 @@ def createDisc(archive):
         disc_id = random.randint(0, len(archive) - 1) + 1000
 
     # Obtém o título do disco a partir do arquivo de músicas usando o disc_id gerado.
-    title = musics[random.randint(0, len(musics) - 1)][1]
+    title = archive[disc_id - 1000]
     # Adiciona um artista para o álbum.
     artist_id = artists[random.randint(0, len(artists) - 1)][0]
     # Cria uma data de lançamento chamando a função createDate.
@@ -218,7 +228,7 @@ def createPlaylist():
 def createPlaylistMusic():
     playlistMusic_id = random.randint(3000, 3500)
     while playlistMusic_id in existingID:
-        playlistMusic_id = random.randint(2000, 2500)
+        playlistMusic_id = random.randint(3000, 3500)
 
     # Obtemos uma playlist existente para adicionar uma música.
     playlist = playlists[random.randint(0, len(playlists) - 1)]
@@ -250,7 +260,7 @@ def createPlaylistMusic():
 def createArtistMusic():
     artistMusic_id = random.randint(4000, 4500)
     while artistMusic_id in existingID:
-        artistMusic_id = artistMusic_id = random.randint(2000, 2500)
+        artistMusic_id = random.randint(4000, 4500)
 
     # Obtemos um artista existente para adicionar uma música.
     artist = artists[random.randint(0, len(artists) - 1)]
@@ -313,20 +323,20 @@ def createExportCode(users, artists, musics, discs, playlists, playlist_music, a
     for i in artists:
         code_archive.write("INSERT INTO artista (id, nome, data_nascimento) VALUES (" + str(i[0]) + ", '" + i[1] + "', '" + str(i[2][2]) + "-" + str(i[2][1]) + "-" + str(i[2][0]) + "');\n")
 
-    for i in musics:
-        code_archive.write("INSERT INTO musica (id, titulo, duracao) VALUES (" + str(i[0]) + ", '" + i[1] + "', " + str(i[3]) + ");\n")
-
     for i in discs:
         code_archive.write("INSERT INTO disco (id, titulo, data_lancamento, artista_id) VALUES (" + str(i[0]) + ", '" + i[1] + "', '" + str(i[2][2]) + "-" + str(i[2][1]) + "-" + str(i[2][0]) + "', " + str(i[3]) + ");\n")
+
+    for i in musics:
+        code_archive.write("INSERT INTO musica (id, titulo, duracao, disco_id) VALUES (" + str(i[0]) + ", '" + i[1] + "', " + str(i[3]) + ", " + str(i[4]) + ");\n")
 
     for i in playlists:
         code_archive.write("INSERT INTO playlist (id, titulo, usuario_id) VALUES (" + str(i[0]) + ", '" + i[1] + "', " + str(i[2]) + ");\n")
 
     for i in playlist_music:
-        code_archive.write("INSERT INTO playlist_musica (id, playlist_id, musica_id) VALUES (" + str(i[0]) + ", " + str(i[1]) + ", " + str(i[2]) + ");\n")
+        code_archive.write("INSERT INTO playlist_musica (playlist_id, musica_id) VALUES (" + str(i[1]) + ", " + str(i[2]) + ");\n")
 
     for i in artist_music:
-        code_archive.write("INSERT INTO artista_musica (id, artista_id, musica_id) VALUES (" + str(i[0]) + ", " + str(i[1]) + ", " + str(i[2]) + ");\n")
+        code_archive.write("INSERT INTO artista_musica (artista_id, musica_id) VALUES (" + str(i[1]) + ", " + str(i[2]) + ");\n")
 
     code_archive.close()
     print("---> Dados gerados com sucesso!")
@@ -366,10 +376,10 @@ def main():
         createUser(archive_names_read)
     for _ in range(0, num_artists):
         createArtist(archive_artists_read)
+    for _ in range(0, num_discs):
+        createDisc(archive_musics_read)
     for _ in range(0, num_musics):
         createMusic(archive_musics_read)
-    for _ in range(0, num_discs):
-        createDisc(musics)
     for _ in range(0, num_playlists):
         createPlaylist()
     for _ in range(0, num_playlistMusics):
@@ -392,11 +402,13 @@ def start():
 
 # Variáveis responsáveis por informar a quantidade de cada item o usuário gostaria de criar.
 num_users = 10
-num_artists = 20
+num_artists = 15
 num_musics = 90
-num_discs = 5
-num_playlists = 10
-num_playlistMusics = 50
-num_artistMusics = 10
+num_discs = 20
+num_playlists = 20
+# Número de músicas que irão conter em uma playlist.
+num_playlistMusics = 35
+# Número de vezes que artistas aleatórios serão adicionado em músicas aleatórias.
+num_artistMusics = 90
 
 start()

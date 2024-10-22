@@ -1,3 +1,10 @@
+CREATE TABLE usuario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    data_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE artista (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -8,37 +15,30 @@ CREATE TABLE disco (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(100) NOT NULL,
     data_lancamento DATE NOT NULL,
-    id_artista INT REFERENCES artistas(id)
+    artista_id INT REFERENCES artista(id)
 );
 
 CREATE TABLE musica (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(100) NOT NULL,
     duracao INT NOT NULL,
-    id_disco INT REFERENCES discos(id)
-);
-
-CREATE TABLE usuario (
-    id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    data_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    disco_id INT REFERENCES disco(id)
 );
 
 CREATE TABLE playlist (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(100) NOT NULL,
-    id_usuario INT REFERENCES usuarios(id)
+    usuario_id INT REFERENCES usuario(id)
 );
 
 CREATE TABLE artista_musica (
-    id_musica INT REFERENCES musicas(id),
-    id_artista INT REFERENCES artistas(id),
-    PRIMARY KEY (id_musica, id_artista)
+    musica_id INT REFERENCES musica(id),
+    artista_id INT REFERENCES artista(id),
+    PRIMARY KEY (musica_id, artista_id)
 );
 
 CREATE TABLE playlist_musica (
-    id_playlist INT REFERENCES playlists(id),
-    id_musica INT REFERENCES musicas(id),
-    PRIMARY KEY (id_playlist, id_musica)
+    playlist_id INT REFERENCES playlist(id),
+    musica_id INT REFERENCES musica(id),
+    PRIMARY KEY (playlist_id, musica_id)
 );

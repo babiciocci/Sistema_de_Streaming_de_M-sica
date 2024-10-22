@@ -3,7 +3,7 @@ You Right
 Taste
 Espresso
 Enemy
-The boy is mine
+The Boy Is Mine
 Congratulations
 Circles
 Candy
@@ -12,13 +12,13 @@ Bones
 Sharks
 Positions
 Imperfect for You
-Steal my Girl
+Steal My Girl
 What Makes You Beautiful
 R U Mine?
 The Hills
 The Door
 Lose Control
-Hear me Now
+Hear Me Now
 Woman
 Hard Times
 I Love You
@@ -29,13 +29,13 @@ Best Song Ever
 18
 22
 I Want to Write You a Song
-If I Could Fly 
-For u Gabriela
-For u Bruno
+If I Could Fly
+For U Gabriela
+For U Bruno
 Whyd You Wanna Call Me When Youre High?
 Story of My Life
 Save Your Tears
-In The Name of Love
+In the Name of Love
 Beautiful Now
 I Knew You Were Trouble
 Outside
@@ -49,23 +49,23 @@ Nonsense
 Feather
 Counting Stars
 Kiwi
-How Deep is Your Love
+How Deep Is Your Love
 Lost on You
 Thriller
 Friends
-Weve to be Friends
+Weve Got to Be Friends
 Problems
 Heart Attack
 Sweet Child O Mine
-Livin On A Prayer
+Livin on a Prayer
 Smells Like Teen Spirit
 Alive
 Your Love
 Come Together
 I Wanna Hold Your Hand
-Here Comes The Sun
+Here Comes the Sun
 Let It Be
-I Was Made for LovinYou
+I Was Made for Lovin You
 Bohemian Rhapsody
 I Cant Help Falling in Love With You
 Somebody to Love
@@ -76,7 +76,7 @@ Enter Sandman
 Eternal Sunshine
 Billie Jean
 Beat It
-Welcome To The Jungle
+Welcome to the Jungle
 Abbey Road
 Imagine
 Dark Side of the Moon
@@ -93,7 +93,116 @@ Eclipse
 Die With a Smile
 Night Changes
 Symphony
-BIRDS OF A FEATHER
+Birds of a Feather
 Too Sweet
 I Wanna Be Yours
-I like the way you kiss me
+I Like the Way You Kiss Me
+Hotel California
+Stairway to Heaven
+Hey Jude
+Rolling in the Deep
+Shape of You
+Blinding Lights
+Wonderwall
+Bad Guy
+Someone Like You
+Crazy in Love
+Uptown Funk
+Sweet Home Alabama
+Back in Black
+My Way
+Superstition
+I Gotta Feeling
+Dont Stop Believin
+Another Brick in the Wall
+Hey Ya!
+Crazy Train
+Creep
+I Want It That Way
+Cant Stop the Feeling!
+Africa
+24K Magic
+Stay With Me
+No Tears Left to Cry
+Levitating
+All of Me
+Old Town Road
+Dont Start Now
+Shake It Off
+Bad Romance
+We Are the Champions
+Chasing Cars
+Just the Way You Are
+The Greatest
+New Rules
+Shallow
+Rich Girl
+Talk
+One More Night
+Young, Wild & Free
+Best Part
+Good 4 U
+Watermelon Sugar
+Peaches
+Mood
+Kiss Me More
+Rude
+I Dont Care
+Bad Liar
+Sorry
+Party in the USA
+I Will Survive
+Time After Time
+No Woman, No Cry
+You Make My Dreams
+All Along the Watchtower
+Its My Life
+With a Little Help from My Friends
+Dont You (Forget About Me)
+I Want to Break Free
+Tainted Love
+Lets Dance
+Bad to the Bone
+Every Breath You Take
+The Sound of Silence
+Dont Stop
+Take on Me
+Killing Me Softly With His Song
+Sweet Caroline
+Jump
+One Way or Another
+I Love Rock n Roll
+Time Is on My Side
+Whats Love Got to Do With It
+The Final Countdown
+Here Comes the Sun
+Under Pressure
+Dancing Queen
+I Wanna Dance with Somebody
+You Spin Me Round (Like a Record)
+In the End
+American Idiot
+Light My Fire
+Walk This Way
+November Rain
+Crazy
+Sweet Emotion
+Back in the Saddle
+You Shook Me All Night Long
+Kashmir
+Paradise City
+Dont Speak
+Misery Business
+I Write Sins Not Tragedies
+Pour Some Sugar on Me
+Run to the Hills
+The Trooper
+Hysteria
+Jump
+Every Rose Has Its Thorn
+Alone
+Numb
+Chop Suey!
+Fear of the Dark
+Aces High
+Back for Good

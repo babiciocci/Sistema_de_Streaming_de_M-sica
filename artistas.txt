@@ -36,7 +36,6 @@ Shawn Mendes
 Scorpions
 Alicia Keys
 Jason Mraz
-Aerosmith
 Justin Timberlake
 BTS
 Avril Lavigne
@@ -55,3 +54,39 @@ Harry Styles
 Niall Horan
 Zayn Malik
 Louis Tomlinson
+AC/DC
+Led Zeppelin
+Iron Maiden
+The Rolling Stones
+Aerosmith
+Foo Fighters
+Blink-182
+The Killers
+Oasis
+Green Day
+Creedence Clearwater Revival
+The Doors
+Lynyrd Skynyrd
+Radiohead
+The Who
+Black Sabbath
+Rage Against the Machine
+System of a Down
+The Offspring
+Beach Boys
+Billy Joel
+Joan Jett
+The Clash
+The Police
+Genesis
+Duran Duran
+Depeche Mode
+Talking Heads
+The Cure
+The Smiths
+The Cranberries
+The White Stripes
+My Chemical Romance
+Paramore
+Fall Out Boys
+Taking Back Sunday
