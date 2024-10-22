@@ -1,8 +1,8 @@
 # Projeto 1: Sistema de Streaming de Música
-# Feito por: Gabriela Molina Ciocci 
-#            Bruno Arthur Basso Silva
-# RA:        22.222.032-9
-#            22.123.067-5  
+# Feito por: Bruno Arthur Basso Silva 
+#            Gabriela Molina Ciocci
+# RA:        22.123.067-5 
+#            22.222.032-9
 # Disciplina: CC5232 - Banco de Dados
 # Coordenador(a): Leonardo Anjoletto Ferreira
 # Ciclo: 5° Semestre. 
@@ -52,9 +52,6 @@ archive_playlist_names_read = archive_playlist_names_read.split("\n")
 emailTypes = ["@outlook.com", "@gmail.com", "@hotmail.com"]
 
 # Lista que será responsável por armazenar os valores de ID existentes no programa.
-# Variável que guarda o valor de ID.
-
-count_id = 0
 existingID = []
 
 # Lista que será responsável por armazenar os usuários, músicas, artistas e discos existentes no programa.
